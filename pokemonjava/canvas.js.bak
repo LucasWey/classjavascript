@@ -1,5 +1,5 @@
 class Quadrado{
-
+novo = false;
    constructor(x, y, velX, velY, color, size) {
       this.x = x;
       this.y = y;
@@ -8,17 +8,25 @@ class Quadrado{
       this.color = color;
       this.size = size;
    }
+   
    draw() {
-      ctx.beginPath();
-      ctx.fillStyle = this.color;
-      ctx.fillRect(this.x, this.y, 50, 50);
-      ctx.fill();
+     ctx.beginPath();
+    
+	ctx.fillStyle = this.color;
+    ctx.rect(this.x,this.y,50,50);
+
+    ctx.fill();
+    ctx.stroke();
    }
 
    update() {
-
+novo=false;
       if ((this.y + this.size) >= height) {
-         this.velY = -(this.velY);
+         //this.velY = -(this.velY);
+		 //this.y=0;
+		 //this.draw();
+		 //quadrados.push(this);
+		 novo = true;
       }
 
       if ((this.y - this.size) <= 0) {
